@@ -1,3 +1,19 @@
+krb5 (1.13.2+dfsg-5ubuntu2) xenial; urgency=medium
+
+  * Fix segfault in context_handle (LP: #1648901).
+    - d/p/check_internal_context_on_init_context_errors.patch: 
+    Cherry picked patch from upstream VCS.
+
+ -- Eric Desrochers <eric.desrochers@canonical.com>  Mon, 16 Jan 2017 15:06:57 +0100
+
+krb5 (1.13.2+dfsg-5ubuntu1) xenial; urgency=medium
+
+  * d/p/upstream/0001-Add-SPNEGO-special-case-for-NTLMSSP-MechListMIC.patch:
+    Cherry-pick from upstream to add SPNEGO special case for
+    NTLMSSP+MechListMIC.  LP: #1643708.
+
+ -- Steve Langasek <steve.langasek@ubuntu.com>  Mon, 21 Nov 2016 17:28:15 -0800
+
 krb5 (1.13.2+dfsg-5) unstable; urgency=high
 
   *  Security Update

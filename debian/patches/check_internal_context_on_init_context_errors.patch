@@ -1,0 +1,26 @@
+Description: Check internal context on init context errors
+    
+ If the mechanism deletes the internal context handle on error, the
+ mechglue must do the same with the union context, to avoid crashes if
+ the application calls other functions with this invalid union context.
+
+Author     : Simo Sorce <simo@redhat.com>
+Origin     : https://github.com/krb5/krb5/commit/3beb564cea3d219efcf71682b6576cad548c2d23
+Bug        : https://bugs.chromium.org/p/chromium/issues/detail?id=554905
+Bug-Ubuntu : https://bugs.launchpad.net/ubuntu/+source/krb5/+bug/1648901
+--- a/src/lib/gssapi/mechglue/g_init_sec_context.c
++++ b/src/lib/gssapi/mechglue/g_init_sec_context.c
+@@ -228,8 +228,13 @@
+ 	 * context info on the first call to init, and on all
+ 	 * subsequent calls make the caller responsible for
+ 	 * calling gss_delete_sec_context
++	 * However if the mechanism decided to null the internal context
++	 * we should also null the union context to avoid dereferencing
++	 * a null pointer in other gssapi calls
+ 	 */
+ 	map_error(minor_status, mech);
++	if (union_ctx_id->internal_ctx_id == GSS_C_NO_CONTEXT)
++	    *context_handle = GSS_C_NO_CONTEXT;
+ 	if (*context_handle == GSS_C_NO_CONTEXT) {
+ 	    free(union_ctx_id->mech_type->elements);
+ 	    free(union_ctx_id->mech_type);
