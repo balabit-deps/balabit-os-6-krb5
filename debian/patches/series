@@ -19,3 +19,9 @@ upstream/0018-Check-for-null-kadm5-policy-name-CVE-2015-8630.patch
 upstream/0019-Fix-leaks-in-kadmin-server-stubs-CVE-2015-8631.patch
 upstream/0001-Add-SPNEGO-special-case-for-NTLMSSP-MechListMIC.patch
 check_internal_context_on_init_context_errors.patch
+CVE-2016-3119.patch
+CVE-2016-3120.patch
+CVE-2017-11368-1.patch
+CVE-2017-11368-2.patch
+CVE-2017-11462.patch
+CVE-2018-5729-CVE-2018-5730.patch

@@ -1,3 +1,32 @@
+krb5 (1.13.2+dfsg-5ubuntu2.1) xenial-security; urgency=medium
+
+  * SECURITY UPDATE: DoS (NULL pointer dereference) via a crafted request to
+    modify a principal
+    - debian/patches/CVE-2016-3119.patch: Fix LDAP null dereference on
+      empty arg
+    - CVE-2016-3119
+  * SECURITY UPDATE: DoS (NULL pointer dereference) via an S4U2Self request
+    - debian/patches/CVE-2016-3120.patch: Fix S4U2Self KDC crash when anon
+      is restricted
+    - CVE-2016-3120
+  * SECURITY UPDATE: KDC assertion failure
+    - debian/patches/CVE-2017-11368-1.patch: Prevent KDC unset status
+      assertion failures
+    - debian/patches/CVE-2017-11368-2.patch: Simplify KDC status assignment
+    - CVE-2017-11368
+  * SECURITY UPDATE: Double free vulnerability
+    - debian/patches/CVE-2017-11462.patch: Preserve GSS context on init/accept
+      failure
+    - CVE-2017-11462
+  * SECURITY UPDATE: Authenticated kadmin with permission to add principals
+    to an LDAP Kerberos can DoS or bypass DN container check.
+    - debian/patches/CVE-2018-5729-CVE-2018-5730.patch: Fix flaws in LDAP DN
+      checking
+    - CVE-2018-5729
+    - CVE-2018-5730 
+
+ -- Eduardo Barretto <eduardo.barretto@canonical.com>  Fri, 11 Jan 2019 13:46:00 -0200
+
 krb5 (1.13.2+dfsg-5ubuntu2) xenial; urgency=medium
 
   * Fix segfault in context_handle (LP: #1648901).
