@@ -1,3 +1,12 @@
+krb5 (1.13.2+dfsg-5ubuntu2.2) xenial-security; urgency=medium
+
+  * SECURITY UPDATE: Unbounded recursion
+    - debian/patches/CVE-2020-28196.patch: adds recursion limit for ASN.1
+      indefinite lenghts in src/lib/krb5/asn.1/asn1_encode.c.
+    - CVE-2020-28196
+
+ -- Leonidas S. Barbosa <leo.barbosa@canonical.com>  Wed, 11 Nov 2020 11:24:12 -0300
+
 krb5 (1.13.2+dfsg-5ubuntu2.1) xenial-security; urgency=medium
 
   * SECURITY UPDATE: DoS (NULL pointer dereference) via a crafted request to
